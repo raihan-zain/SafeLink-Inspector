@@ -7,7 +7,7 @@
 
 **SafeLink Inspector** is a Chrome extension with a FastAPI backend that checks URLs through the [VirusTotal API](https://www.virustotal.com).  
 It highlights links on web pages and warns users about potentially malicious URLs.  
-An educational cybersecurity project by **Yuriy Sokolov (Kvazilliano)**.
+An educational cybersecurity project by **Nikita Sokolov (sokoloffnik)**.
 
 ---
 
